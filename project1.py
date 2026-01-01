@@ -10,7 +10,6 @@
 
 import random # to generate random questions
 import json # for JSON module
-
 questions = {
     "What is the keyword to define a function in Python?": "def",
     "Which data type is used to store True or False values?": "bool",
@@ -44,7 +43,8 @@ def save_high_score(name,score):
         pass
 
     scores.append({"name": name, "score": score})
-    scores = sorted(scores, key=lambda x: x['score'], reverse=True)[:5] # sort on the basis of score
+    scores.sort(key=lambda x: x['score'], reverse=True) # sort on the basis of score
+    scores = scores[:5]
     with open('highscores.json', 'w') as f:  # w = write/ overwrite mode   
         json.dump(scores, f, indent=4) # convert python list back to JSON text & writes it to file
     print("High scores updated!")
@@ -78,4 +78,3 @@ def python_trivia_game():
  
 
 python_trivia_game()    
-
