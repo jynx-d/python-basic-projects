@@ -1,0 +1,5 @@
+# Ignore data files
+highscores.json
+*.json  # Or specific ones
+__pycache__/
+.env
