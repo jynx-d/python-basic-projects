@@ -26,24 +26,24 @@ questions = {
 def display_high_scores_json():
     scores = []
     try:
-        with open('highscores.json', 'r') as f:
+        with open("highscores.json", "r") as f:
             scores = json.load(f)
             print("\n TOP 5 HIGH SCORES: ")
             for i,s in enumerate(scores,1):
-                print( f"{i}. {s['name']}: {s['score']}/5")
+                print( f"{i}. {s["name"]}: {s["score"]}/5")
     except FileNotFoundError:
         print("No high scores yet!")
 
 def save_high_score(name,score):
     scores = []
     try:
-        with open('highscores.json', 'r') as f: # reads text file, converts it into JSON form & adds it to f
+        with open("highscores.json", "r") as f: # reads text file, converts it into JSON form & adds it to f
             scores = json.load(f) # converts JSON to  python code
     except FileNotFoundError:
         pass
 
     scores.append({"name": name, "score": score})
-    scores.sort(key=lambda x: x['score'], reverse=True) # sort on the basis of score
+    scores.sort(key=lambda x: x["score"], reverse=True) # sort on the basis of score
     scores = scores[:5]
     with open('highscores.json', 'w') as f:  # w = write/ overwrite mode   
         json.dump(scores, f, indent=4) # convert python list back to JSON text & writes it to file
