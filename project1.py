@@ -9,7 +9,7 @@
 # show the highscores at the start 
 
 import random # to generate random questions
-import json # for JSON method
+import json # for JSON module
 
 questions = {
     "What is the keyword to define a function in Python?": "def",
@@ -78,3 +78,4 @@ def python_trivia_game():
  
 
 python_trivia_game()    
+
